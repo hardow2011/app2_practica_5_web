@@ -18,6 +18,8 @@ public class Main {
             config.registerPlugin(new RouteOverviewPlugin("/rutas")); //aplicando plugins de las rutas
         }).start(getHerokuAssignedPort());
 
+        // Javalin app = Javalin.create().start(7000);
+
         //creando el manejador
         app.get("/", ctx -> ctx.result("Hola Mundo en Javalin :-D"));
 

@@ -45,7 +45,9 @@ public class ConceptoBasicosControlador {
          * Handler sobre el endpoint, en al variable ctx.
          */
         app.get("/isc415", ctx -> {
-            ctx.result("Endpoint "+ctx.req.getRequestURI());
+            String metodo = ctx.req.getMethod();
+            ctx.res.setHeader("asignatura", "ISC-415");
+            ctx.result("Endpoint "+ctx.req.getRequestURI()+" - Metodo: "+metodo);
         });
 
         /**
@@ -97,6 +99,6 @@ public class ConceptoBasicosControlador {
      * @param ctx
      */
     private void procesamiento(Context ctx){
-        ctx.result("Trabajando por el metodo: "+ctx.method());
+        ctx.result("Trabajando por el metodo: "+ctx.method()+ " - Header[profesor] = "+ctx.header("profesor"));
     }
 }
