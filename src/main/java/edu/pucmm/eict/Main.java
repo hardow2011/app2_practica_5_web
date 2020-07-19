@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
         //Ejemplo hola mundo
-        String mensaje = "Hola Mundo en Javalin :-D";
+        String mensaje = "Si tu' supieras cuantas veces he sognado con que regreses, seguro que estuvieras aqui'. [ChocQuibTown - Pa Olvidarte]";
         System.out.println(mensaje);
 
         //Creando la instancia del servidor.
@@ -21,7 +21,7 @@ public class Main {
         // Javalin app = Javalin.create().start(7000);
 
         //creando el manejador
-        app.get("/", ctx -> ctx.result("Hola Mundo en Javalin :-D"));
+        app.get("/", ctx -> ctx.result("Si tu' supieras cuantas veces he sognado con que regreses, seguro que estuvieras aqui'. [ChocQuibTown - Pa Olvidarte]"));
 
         //aplicando los diferentes conceptos.
         new ConceptoBasicosControlador(app).aplicarRutas();
@@ -52,7 +52,7 @@ public class Main {
         if (processBuilder.environment().get("PORT") != null) {
             return Integer.parseInt(processBuilder.environment().get("PORT"));
         }
-        return 7000; //Retorna el puerto por defecto en caso de no estar en Heroku.
+        return 8000; //Retorna un puerto asignado en caso de no estar en Heroku.
     }
 
 }

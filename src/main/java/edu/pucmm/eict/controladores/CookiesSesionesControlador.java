@@ -25,6 +25,7 @@ public class CookiesSesionesControlador extends BaseControlador {
         app.get("/crearCookie/:nombre/:valor", ctx -> {
             //creando una cookie para dos minutos, el parametro indicando en segundos.
             ctx.cookie(ctx.pathParam("nombre"), ctx.pathParam("valor"), 120);
+            ctx.cookie("usuario", "LouvensRaphael", 120);
             ctx.result("Cookie creada...");
         });
 
@@ -40,6 +41,11 @@ public class CookiesSesionesControlador extends BaseControlador {
             ctx.cookieMap().forEach((key, valor) -> {
                 salida.add(String.format("[%s] = [%s]", key, String.join(",", valor)));
             });
+            if(ctx.cookie("usuario")!=null){
+                salida.add("Hola "+ctx.cookie("usuario"));
+            }else{
+                salida.add("No envio la info");
+            }
             //
             ctx.result(String.join("\n", salida));
         });

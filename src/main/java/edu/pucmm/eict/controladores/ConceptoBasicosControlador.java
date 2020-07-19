@@ -21,7 +21,7 @@ public class ConceptoBasicosControlador {
             //
             String mensaje = String.format("Manejador before aplicando a todas las llamadas: %s, Contexto: %s, Metodo: %s",
                     ctx.req.getRemoteHost(),
-                    ctx.req.getServletPath(),
+                    ctx.path(),
                     ctx.req.getMethod());
             //
             System.out.println(mensaje);
@@ -71,7 +71,7 @@ public class ConceptoBasicosControlador {
                     ctx.req.getServletPath(),
                     ctx.req.getMethod());
             //aplicando cambios o validaciones.
-
+            ctx.header("incluido-after", "Fue ejecutado en el bloqe after");
             //
             System.out.println(mensaje);
         });

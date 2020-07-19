@@ -27,8 +27,9 @@ public class ZonaAdminClasica extends BaseControlador {
                 /**
                  * Validando que exista el usuario por el filtro.
                  */
-                before(ctx -> {
+                before("/", ctx -> {
                     //recuperando el usuario de la sesión,en caso de no estar, redirecciona la pagina 401.
+                    // ctx.sessionAttribute("usuario", "LouvensRaphael");
                     Usuario usuario = ctx.sessionAttribute("usuario");
                     if(usuario == null){// usuario no existe
                         ctx.redirect("/401.html");
